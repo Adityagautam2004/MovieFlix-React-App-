@@ -1,24 +1,24 @@
 import React from "react";
 import TopNav from "./partials/TopNav";
 import { useNavigate } from "react-router-dom";
-import Dropdown from "./partials/Dropdown";
 import axios from "../utils/axios";
 import Loading from "./Loading";
 import Cards from "./partials/Cards";
 import InfiniteScroll from "react-infinite-scroll-component";
-function Tvshows() {
-  const navigate = useNavigate();
-  const [category, setCategory] = React.useState("airing_today");
-  const [tv, setTv] = React.useState([]);
+
+function People() {
+    const navigate = useNavigate();
+  const [category, setCategory] = React.useState("popular");
+  const [person, setPeople] = React.useState([]);
   const [page, setPage] = React.useState(1);
   const [hasMore, setHasMore] = React.useState(true);
-    document.title = "Movieflix | Tv";
+    document.title = "Movieflix | People";
 
-  const GetTv = async () => {
+  const GetPeople = async () => {
     try {
-      const { data } = await axios.get(`/tv/${category}?page=${page}`);
+      const { data } = await axios.get(`/person/${category}?page=${page}`);
       if (data.results.length > 0) {
-        setTv((prevState) => [
+        setPeople((prevState) => [
             ...prevState,
             ...data.results,
           ]);
@@ -33,12 +33,12 @@ function Tvshows() {
   };
 
   const refreshHandler = async () => {
-    if(tv.length === 0) {
-        GetTv();
+    if(person.length === 0) {
+        GetPeople();
     } else {
-        setTv([]);
+        setPeople([]);
         setPage(1);
-        GetTv();
+        GetPeople();
     }
     };
 
@@ -46,8 +46,7 @@ function Tvshows() {
     refreshHandler();
   }, [category]);
 
-
-  return tv.length>0? (
+  return person.length>0? (
     <div className="px-[3%] w-screen ">
 
       <div className="w-full flex items-center justify-between">
@@ -56,32 +55,27 @@ function Tvshows() {
             className=" hover:text-[#6556CD] ri-arrow-left-line"
             onClick={() => navigate(-1)}
           ></i>{" "}
-          Tv Shows 
+          People 
           <small>
             <i className="text-[#6556CD] text-sm font-semibold ml-2">({category})</i>
           </small>
         </h1>
         <div className="flex items-center w-[80%]"> 
         <TopNav />
-        <Dropdown
-          title="Category"
-          options={["on_the_air", "top_rated" ,"popular", "airing_today"]}
-          func={(e) => setCategory(e.target.value)}
-        />
         <div className="w-[2%]"></div>
         </div>
       </div>
 
       <InfiniteScroll
-        dataLength={tv.length}
-        next={GetTv}
+        dataLength={person.length}
+        next={GetPeople}
         hasMore={hasMore}
         scrollThreshold={0.9}
         className="w-full h-full flex flex-wrap justify-start items-center overflow-auto overflow-x-hidden"
         endMessage={<h1 className="text-2xl text-zinc-400">No more data</h1>}
       loader={<h1>Loading...</h1>}
       >
-      <Cards data={tv} title={category} />
+      <Cards data={person} title={category} />
       </InfiniteScroll>
        
 
@@ -93,4 +87,4 @@ function Tvshows() {
   )
 }
 
-export default Tvshows;
+export default People
