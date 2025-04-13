@@ -5,28 +5,50 @@ import Dropdown from "./partials/Dropdown";
 import axios from "../utils/axios";
 import Loading from "./Loading";
 import Cards from "./partials/Cards";
+import InfiniteScroll from "react-infinite-scroll-component";
 function Trending() {
   const navigate = useNavigate();
   const [category, setCategory] = React.useState("all");
   const [duration, setDuration] = React.useState("day");
   const [trending, setTrending] = React.useState([]);
+  const [page, setPage] = React.useState(1);
+  const [hasMore, setHasMore] = React.useState(true);
 
   const GetTrending = async () => {
     try {
-      const { data } = await axios.get(`/trending/${category}/${duration}`);
-      setTrending(data.results);
+      const { data } = await axios.get(`/trending/${category}/${duration}?page=${page}`);
+      if (data.results.length > 0) {
+        setTrending((prevState) => [
+            ...prevState,
+            ...data.results,
+          ]);
+            setPage((prevState) => prevState + 1);
+        } 
+    else {
+        setHasMore(false);
+    }   
     } catch (error) {
       console.log("Error: ", error);
     }
   };
 
+  const refreshHandler = async () => {
+    if(trending.length === 0) {
+        GetTrending();
+    } else {
+        setTrending([]);
+        setPage(1);
+        GetTrending();
+    }
+    };
+
     React.useEffect(() => {
-    GetTrending();
+    refreshHandler();
   }, [category, duration]);
 
 
   return trending.length>0? (
-    <div className="px-[3%] w-screen h-screen">
+    <div className="px-[3%] w-screen ">
 
       <div className="w-full flex items-center justify-between">
         <h1 className="text-2xl font-semibold text-zinc-400">
@@ -53,7 +75,18 @@ function Trending() {
         </div>
       </div>
 
+      <InfiniteScroll
+        dataLength={trending.length}
+        next={GetTrending}
+        hasMore={hasMore}
+        scrollThreshold={0.9}
+        className="w-full h-full flex flex-wrap justify-start items-center overflow-auto overflow-x-hidden"
+        endMessage={<h1 className="text-2xl text-zinc-400">No more data</h1>}
+      loader={<h1>Loading...</h1>}
+      >
       <Cards data={trending} title={category} />
+      </InfiniteScroll>
+       
 
     </div>
   ) : (

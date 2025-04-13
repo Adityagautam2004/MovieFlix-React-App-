@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-     <div className='w-screen h-screen bg-[#1F1E24] flex '>
+     <div className='w-screen  bg-[#1F1E24] flex '>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/trending" element={<Trending/>} />
