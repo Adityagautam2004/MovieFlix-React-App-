@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import Home from './components/Home'
 import { Routes, Route } from 'react-router-dom'
-import Loading from './components/Loading'
 import Trending from './components/Trending'
+import Popular from './components/Popular'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/trending" element={<Trending/>} />
-
+        <Route path="/popular" element={<Popular />} />
       </Routes>
       
      </div>
