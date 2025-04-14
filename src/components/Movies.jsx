@@ -81,7 +81,7 @@ function Movies() {
         endMessage={<h1 className="text-2xl text-zinc-400">No more data</h1>}
       loader={<h1>Loading...</h1>}
       >
-      <Cards data={movies} title={category} />
+      <Cards data={movies} title="movie" />
       </InfiniteScroll>
        
 

@@ -75,7 +75,7 @@ function People() {
         endMessage={<h1 className="text-2xl text-zinc-400">No more data</h1>}
       loader={<h1>Loading...</h1>}
       >
-      <Cards data={person} title={category} />
+      <Cards data={person} title="person" />
       </InfiniteScroll>
        
 

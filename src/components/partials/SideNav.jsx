@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 function SideNav() {
 
   return (
-    <div className='w-[20%] h-full  border-r-2 border-zinc-400 p-3 ' >
+    <div className='w-[20%] h-full border-r-2 border-zinc-400 p-10 overflow-x-hidden  ' >
         <h1 className='text-2xl text-white font-bold m'>
             <i className="text-[#6556CD] ri-tv-fill text-2xl mr-2 "></i>
             <span className='text-2xl'>MovieFlix</span>

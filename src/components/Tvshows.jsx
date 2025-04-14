@@ -81,7 +81,7 @@ function Tvshows() {
         endMessage={<h1 className="text-2xl text-zinc-400">No more data</h1>}
       loader={<h1>Loading...</h1>}
       >
-      <Cards data={tv} title={category} />
+      <Cards data={tv} title="tv" />
       </InfiniteScroll>
        
 

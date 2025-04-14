@@ -19,7 +19,7 @@ function Header({ data }) {
       </h1>
       <p className="w-[70%] text-white mt-3 mb-3">
         {data.overview.slice(0, 200) || data.biography}..
-        <Link to="" className="text-blue-400">
+        <Link to={`/${data.media_type}/details/${data.id}`} className="text-blue-400">
           More
         </Link>
       </p>
