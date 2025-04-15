@@ -6,7 +6,7 @@ import noimage from "/noimage.jpg"
 export default function HorizontalCards({ data }) {
   return (
 
-      <div className="w-[100%] flex  overflow-y-hidden mb-5 p-5">
+      <div className="w-[100%] h-[40vh] flex  overflow-y-hidden mb-5 p-5">
         {data.length > 0 ? data.map((d, i) => (
           <Link to={`/${d.media_type}/details/${d.id}`} key={i} className="min-w-[15%] h-[35] bg-zinc-900 mr-5 mb-5">
             <img
