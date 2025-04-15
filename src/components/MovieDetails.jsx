@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
 import HorizontalCards from "./partials/HorizontalCards";
+import noimage from "/noimage.jpg";
 
 function MovieDetails() {
   const {pathname} = useLocation();
@@ -104,7 +105,7 @@ function MovieDetails() {
           <h1 className="text-2xl mt-5">Languages</h1>
           <p className="mb-10">{info.translation.join(", ")}</p>
 
-          <Link className="rounded-lg p-5 bg-[#6556CD]" to={`${pathname}/trailer`}><i class="mr-3 text-xl ri-play-fill"></i> {""}Play Trailer</Link>
+          <Link className="rounded-lg p-5 bg-[#6556CD]" to={`${pathname}/trailer`}><i className="mr-3 text-xl ri-play-fill"></i> {""}Play Trailer</Link>
 
         </div>
       </div>

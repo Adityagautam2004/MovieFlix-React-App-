@@ -108,7 +108,7 @@ function TvDetails() {
             className="rounded-lg p-5 bg-[#6556CD]"
             to={`${pathname}/trailer`}
           >
-            <i class="mr-3 text-xl ri-play-fill"></i> {""}Play Trailer
+            <i className="mr-3 text-xl ri-play-fill"></i> {""}Play Trailer
           </Link>
         </div>
       </div>
