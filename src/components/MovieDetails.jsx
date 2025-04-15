@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { Outlet, useLocation, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { asyncloadmovie, removemovie } from "../store/actions/movieactions";
+import { asyncloadmovie, removemovie } from "../store/actions/movieActions";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Loading from "./Loading";

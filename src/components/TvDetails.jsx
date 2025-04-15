@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { Outlet, useLocation, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { asyncloadtv, removetv } from "../store/actions/tvactions";
+import { asyncloadtv, removetv } from "../store/actions/tvActions";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Loading from "./Loading";
