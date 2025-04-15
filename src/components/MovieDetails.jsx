@@ -29,8 +29,10 @@ function MovieDetails() {
           info.detail.backdrop_path || info.detail.poster_path
         })`,
         backgroundSize: "cover",
-        backgroundPosition: "top-[10%]",
+        backgroundPosition: "center",
+        overflow: "hidden",
         backgroundRepeat: "no-repeat",
+
       }}
       className="relative w-screen h-[140vh] px-[10%] "
     >

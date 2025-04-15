@@ -21,7 +21,7 @@ function TopNav() {
   }, [query]);
 
   return (
-    <div className="w-full h-[10vh] relative flex justify-start items-center ml-[15%]">
+    <div className="w-full h-[10vh] relative flex justify-start items-center ml-[16%]">
       <i className=" text-zinc-400 text-3xl ri-search-2-line"></i>{" "}
       <input
         onChange={(e) => setQuery(e.target.value)}
@@ -33,7 +33,7 @@ function TopNav() {
       {query.length > 0 && (
         <i
           onClick={() => setQuery("")}
-          className=" text-zinc-400 text-3xl ri-close-line"
+          className=" cursor-pointer text-zinc-400 text-3xl ri-close-line"
         ></i>
       )}
       <div className="z-[100] absolute w-[50%] max-h-[50vh] bg-zinc-200 top-[100%] overflow-auto left-[5%]">

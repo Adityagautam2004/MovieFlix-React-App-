@@ -47,7 +47,6 @@ function Trending() {
     refreshHandler();
   }, [category, duration]);
 
-
   return trending.length>0? (
     <div className="px-[3%] w-screen ">
 

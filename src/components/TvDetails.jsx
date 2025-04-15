@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import Loading from "./Loading";
 import { Link } from "react-router-dom";
 import HorizontalCards from "./partials/HorizontalCards";
+import noimage from "/noimage.jpg"
 
 function TvDetails() {
   const { pathname } = useLocation();
@@ -28,10 +29,11 @@ function TvDetails() {
           info.detail.backdrop_path || info.detail.poster_path
         })`,
         backgroundSize: "cover",
-        backgroundPosition: "top-[10%]",
-        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        position: "relative",
+        overflow: "hidden",
       }}
-      className="relative w-screen h-[140vh] px-[10%] "
+      className="relative w-screen h-[180vh] px-[10%] "
     >
       {/* part 1 navigation */}
       <nav className=" h-[10vh] w-full text-zinc-100 flex gap-10 text-xl items-center">
@@ -169,7 +171,7 @@ function TvDetails() {
           <div className="w-[15vh] mr-[8%]" key={index}>
             <img
               className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.5)] h-[30vh] min-w-[14vw]  object-cover "
-              src={`https://image.tmdb.org/t/p/original/${season.poster_path}`}
+              src={season.poster_path  ? `https://image.tmdb.org/t/p/original/${season.poster_path}` : noimage}
               alt=""
             />
             <h1 className="text-2xl text-zinc-300 mt-3 font-semifold">

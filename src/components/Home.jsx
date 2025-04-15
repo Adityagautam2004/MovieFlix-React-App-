@@ -42,7 +42,7 @@ function Home() {
   return wallpaper && trending ? (
     <>
       <SideNav />
-      <div className="w-[80%] h-full overflow-auto overflow-x-hidden ">
+      <div className="ml-[20%] w-[80%] h-full overflow-auto overflow-x-hidden ">
         <TopNav />
         <Header data={wallpaper} />
 

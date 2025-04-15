@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import {useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { asyncloadperson, removeperson } from "../store/actions/personActions";
 import { useNavigate } from "react-router-dom";
@@ -10,8 +10,6 @@ import { Link } from "react-router-dom";
 import HorizontalCards from "./partials/HorizontalCards";
 import noimage from "/noimage.jpg";
 import Dropdown from "./partials/Dropdown";
-
-
 
 function PersonDetails() {
   const { pathname } = useLocation();
@@ -139,21 +137,23 @@ function PersonDetails() {
             />
           </div>
           <div className="list-disc text-zinc-400 w-full h-[50vh] overflow-x-hidden overflow-y-auto shadow-xl shadow-[rgba(255,255,255,.3)] mt-5 border-zinc-700 p-5">
-
-            {info[category+ "Credits"].cast.map((c,i) => (
-              <li key={i} className="hover:text-white p-5 rounded hover:bg-[#19191d] duration-300 cursor-pointer">
-              <Link to={`/${category}/details/${c.id}`} className="">
-              <p className="inline">  {c.name ||
-              c.title ||
-              c.original_name ||
-              c.original_title}</p>
-              <span className="block ml-5 mt-2">{c.character&& `character name: ${c.character}`}</span>
-              </Link>
-            </li>
-              ))}
-             
+            {info[category + "Credits"].cast.map((c, i) => (
+              <li
+                key={i}
+                className="hover:text-white p-5 rounded hover:bg-[#19191d] duration-300 cursor-pointer"
+              >
+                <Link to={`/${category}/details/${c.id}`} className="">
+                  <p className="inline">
+                    {" "}
+                    {c.name || c.title || c.original_name || c.original_title}
+                  </p>
+                  <span className="block ml-5 mt-2">
+                    {c.character && `Character Name: ${c.character}`}
+                  </span>
+                </Link>
+              </li>
+            ))}
           </div>
-
         </div>
       </div>
     </div>

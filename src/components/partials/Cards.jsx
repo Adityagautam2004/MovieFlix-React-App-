@@ -5,7 +5,7 @@ function Cards({ data, title }) {
   return (
     <div className="w-full flex flex-wrap ">
       {data.map((item, index) => (
-        <Link to={`/${data.media_type || title}/details/${item.id}`} className="relative w-[25vh] mr-[5%] mb-[5%] " key={index}>
+        <Link to={`/${item.media_type || title}/details/${item.id}`} className="relative w-[25vh] mr-[5%] mb-[5%] " key={index}>
           <img
             className="shadow-[8px_17px_38px_2px_rgba(0,0,0,0.5)] h-[40vh]  object-cover "
             src={ item.poster_path || item.backdrop_path || item.profile_path ? `https://image.tmdb.org/t/p/original/${item.poster_path || item.backdrop_path || item.profile_path}` : noimage}
